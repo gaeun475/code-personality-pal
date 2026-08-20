@@ -238,5 +238,9 @@ export function scoreAnswers(answers: BuddyKey[]): BuddyKey {
   (Object.keys(BUDDIES) as BuddyKey[]).forEach((k) => (tally[k] = 0));
   answers.forEach((a) => (tally[a] += 1));
   const order: BuddyKey[] = ["python", "javascript", "cpp", "java", "scratch", "htmlcss"];
-  return order.reduce((best, k) => (tally[k] > tally[best] ? k : best), order[0]);
+  let best: BuddyKey = "python";
+  for (const k of order) {
+    if (tally[k] > tally[best]) best = k;
+  }
+  return best;
 }
