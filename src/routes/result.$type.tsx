@@ -165,6 +165,12 @@ function ResultPage() {
             내 도감에 저장하기 📚
           </button>
           <Link
+            to="/collection"
+            className="tap-pop card-cute block w-full px-6 py-4 text-center text-lg font-display"
+          >
+            모든 결과 유형 보기 📚
+          </Link>
+          <Link
             to="/test"
             className="tap-pop card-cute block w-full px-6 py-4 text-center text-lg font-display"
           >

@@ -54,6 +54,12 @@ function TestPage() {
     }, 420);
   }
 
+  function goBack() {
+    if (step === 0 || picked !== null) return;
+    setAnswers((prev) => prev.slice(0, -1));
+    setStep((s) => s - 1);
+  }
+
   if (analyzing) {
     return (
       <main className="bg-playful relative flex min-h-screen flex-col items-center justify-center px-6">
@@ -81,6 +87,17 @@ function TestPage() {
             {step + 1} / {QUESTIONS.length}
           </span>
         </div>
+
+        {step > 0 && (
+          <button
+            type="button"
+            onClick={goBack}
+            disabled={picked !== null}
+            className="tap-pop mt-2 flex items-center gap-1 text-sm text-muted-foreground disabled:opacity-40"
+          >
+            ← 이전 질문으로 돌아가기
+          </button>
+        )}
 
         <div className="mt-3 h-4 w-full overflow-hidden rounded-full border-2 border-border bg-card">
           <div
