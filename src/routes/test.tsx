@@ -88,6 +88,17 @@ function TestPage() {
           </span>
         </div>
 
+        {step > 0 && (
+          <button
+            type="button"
+            onClick={goBack}
+            disabled={picked !== null}
+            className="tap-pop mt-2 flex items-center gap-1 text-sm text-muted-foreground disabled:opacity-40"
+          >
+            ← 이전 질문으로 돌아가기
+          </button>
+        )}
+
         <div className="mt-3 h-4 w-full overflow-hidden rounded-full border-2 border-border bg-card">
           <div
             className="bg-fun h-full rounded-full transition-all duration-500 ease-out"
