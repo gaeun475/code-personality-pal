@@ -54,6 +54,12 @@ function TestPage() {
     }, 420);
   }
 
+  function goBack() {
+    if (step === 0 || picked !== null) return;
+    setAnswers((prev) => prev.slice(0, -1));
+    setStep((s) => s - 1);
+  }
+
   if (analyzing) {
     return (
       <main className="bg-playful relative flex min-h-screen flex-col items-center justify-center px-6">
